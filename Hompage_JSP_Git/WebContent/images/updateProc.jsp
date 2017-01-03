@@ -1,7 +1,7 @@
 <%@page import="java.awt.print.Printable"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ include file="/ssi/ssi.jsp"%>
-<jsp:useBean id="vo" class="images.ImagesDTO" />
+<jsp:useBean id="dto" class="images.ImagesDTO" />
 <%
 String upDir = "/images/storage";
 String tempDir = "/images/temp";
@@ -13,14 +13,14 @@ UploadSave upload = new UploadSave(request, -1, -1, tempDir);
 
 String col = upload.getParameter("col");
 String word = UploadSave.encode(upload.getParameter("word"));
-String nowPage = upload.getParameter("nowPage");
+int nowPage = Integer.parseInt(upload.getParameter("nowPage"));
 String oldfile = UploadSave.encode(upload.getParameter("oldfile"));
 
-vo.setNo(Integer.parseInt(upload.getParameter("no")));
-vo.setWname(UploadSave.encode(upload.getParameter("wname")));
-vo.setTitle(UploadSave.encode(upload.getParameter("title")));
-vo.setContent(UploadSave.encode(upload.getParameter("content")));
-vo.setPasswd(UploadSave.encode(upload.getParameter("passwd")));
+dto.setNo(Integer.parseInt(upload.getParameter("no")));
+dto.setWname(UploadSave.encode(upload.getParameter("wname")));
+dto.setTitle(UploadSave.encode(upload.getParameter("title")));
+dto.setContent(UploadSave.encode(upload.getParameter("content")));
+dto.setPasswd(UploadSave.encode(upload.getParameter("passwd")));
 
 FileItem fileItem = upload.getFileItem("fname");
 
@@ -32,22 +32,22 @@ UploadSave.deleteFile(upDir, oldfile); //기존파일을 삭제
 fname = UploadSave.saveFile(fileItem, upDir);
 }
 
-vo.setFname(fname);
+dto.setFname(fname);
 
 Map map = new HashMap();
-map.put("no", vo.getNo());
-map.put("passwd", vo.getPasswd());
+map.put("no", dto.getNo());
+map.put("passwd", dto.getPasswd());
 boolean pflag = idao.passCheck(map);
 
 boolean flag = false;
 if (pflag) {
-flag = idao.update(vo);
+flag = idao.update(dto);
 }
 %>
 <!DOCTYPE html>
 <html>
 <head>
-<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
+
 <meta charset="UTF-8"> 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -63,12 +63,7 @@ url +="&nowPage=<%=nowPage%>";
 location.href = url;
 }
 </script>
-<style type="text/css">
-* {
-font-family: gulim;
-font-size: 20px;
-}
-</style>
+
 </head>
 <!-- *********************************************** -->
 <body leftmargin="0" topmargin="0">
