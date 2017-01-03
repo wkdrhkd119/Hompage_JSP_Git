@@ -39,6 +39,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="<%=root%>/css/style.css" type="text/css" rel="Stylesheet">
 
 <script type="text/javascript">
 function read(no){
@@ -58,7 +59,12 @@ function idown(fname) {
 		location.href = url
 	}
 </script>
-<link href="<%=root%>/css/style.css" type="text/css" rel="Stylesheet">
+<style type="text/css">
+td{
+	padding-top: 35px;
+}
+
+</style>
 
 </head>
 
@@ -122,17 +128,17 @@ function idown(fname) {
 								ImagesDTO dto = iter.next();
 					%>
 					<tr>
-						<Td class="imagesText"><%=dto.getNo()%></Td>
-						<td><img style="width: 80px; height: 80px;"
+						<Td class="images-text"><%=dto.getNo()%></Td>
+						<td><img class="images-img"
 							src="./storage/<%=dto.getFname()%>"></td>
-						<Td class="imagesText">
+						<Td class="images-text">
 							<%
 								for (int i = 0; i < dto.getIndent(); i++) {
 											out.print("  ");
 										}
 
 										if (dto.getIndent() > 0) {
-							%> <img src="./storage/re.jpg"> <%
+							%> <img src="./storage/re.png"> <%
  	}
  %> <a href="javascript:read('<%=dto.getNo()%>')"><%=dto.getTitle()%>
 						</a> <%
@@ -141,10 +147,10 @@ function idown(fname) {
  	}
  %>
 						</Td>
-						<Td class="imagesText"><%=dto.getWname()%></Td>
-						<Td class="imagesText"><%=dto.getViewcnt()%></Td>
-						<Td class="imagesText"><%=dto.getWdate().substring(0, 10)%></Td>
-						<Td class="imagesText">
+						<Td class="images-text"><%=dto.getWname()%></Td>
+						<Td class="images-text"><%=dto.getViewcnt()%></Td>
+						<Td class="images-text"><%=dto.getWdate().substring(0, 10)%></Td>
+						<Td class="images-text">
 							<%
 								if (dto.getFname() == null) {
 											out.print("파일 없음");
@@ -165,8 +171,9 @@ function idown(fname) {
 			</div>
 		</div>
 	</div>
-	</div>
-	<DIV class='bottom'>
+	
+	<div class="row">
+	<div class="col-sm-4"></div>  
 		<%=Utility.paging3(total, nowPage, recordPerPage, col, word)%>
 	</DIV>
 

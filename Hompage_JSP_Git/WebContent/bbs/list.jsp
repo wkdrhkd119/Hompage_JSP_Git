@@ -154,11 +154,12 @@ function down(filename) {
 <% } %>   
     
   </TABLE>
-  </div>
    
-  <DIV class='bottom'>
-   <%=Utility.paging3(total, nowPage, recordPerPage, col, word) %>
-  </DIV>
+<div class="row">
+<div class="col-sm-4"></div>  
+<%=Utility.paging3(total, nowPage, recordPerPage, col, word) %>
+</div>
+  
 
 <!-- *********************************************** -->
 <jsp:include page="/templet/bottom.jsp" />

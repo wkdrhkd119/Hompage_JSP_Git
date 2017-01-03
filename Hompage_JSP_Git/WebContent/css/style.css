@@ -29,7 +29,7 @@
 }
 
 .dangerWith{
-	width: 800px;
+	width: 1000px;
 }
 
 .border-position{
@@ -133,7 +133,11 @@
     color: white;
 }
 
-.imagesText{
-	padding-top: 34px;
+.images-text{
+	padding-top: 35px;
+}
+
+.modal-button{
+	padding-right: 40px;
 }
 

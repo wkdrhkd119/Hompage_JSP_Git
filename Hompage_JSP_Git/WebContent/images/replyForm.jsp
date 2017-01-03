@@ -103,36 +103,36 @@ $(document).ready(function() {
 	<input name="no" value="<%=no %>" type="hidden">
 	
 	<div class="form-group">
-        <label class="col-md-3 control-label">이름</label>
-        <div class="col-md-5">
+        <label class="col-md-4 control-label">이름</label>
+        <div class="col-md-4">
             <input type="text" class="form-control" name="wname">
         </div>
     </div>
     
  	<div class="form-group">
-        <label class="col-md-3 control-label">제목</label>
-        <div class="col-md-5">
+        <label class="col-md-4 control-label">제목</label>
+        <div class="col-md-4">
             <input type="text" class="form-control" name="title" value="<%=dto.getTitle() %>">
         </div>
     </div>
     
     
     <div class="form-group">
-        <label class="col-md-3 control-label">내용</label>
-        <div class="col-md-5">
+        <label class="col-md-4 control-label">내용</label>
+        <div class="col-md-4">
             <textarea class="form-control" name="content" rows="8"></textarea>
         </div>
     </div>
     
     <div class="form-group">
-        <label class="col-md-3 control-label">비밀번호</label>
-        <div class="col-md-5">
+        <label class="col-md-4 control-label">비밀번호</label>
+        <div class="col-md-4">
             <input type="password" class="form-control" name="passwd">
         </div>
     </div>
     
     <div class="form-group">
-        <label class="col-md-3 control-label">파일</label>
+        <label class="col-md-4 control-label">파일</label>
         <div class="col-md-4">
             <input type="file" class="form-control buttonPadding" name="fname">
         </div> 
@@ -141,12 +141,12 @@ $(document).ready(function() {
     
     <!-- #messages is where the messages are placed inside -->
     <div class="form-group">
-        <div class="col-md-9 col-md-offset-3">
+        <div class="col-md-9 col-md-offset-4">
             <div id="messages"></div>
         </div>
     </div>
     <div class="form-group">
-        <div class="col-md-9 col-md-offset-3">
+        <div class="col-md-9 col-md-offset-4">
             <button type="submit" class="btn btn-default">답변달기</button>
             <button type="button" class="btn btn-default" onclick="history.back()">취소</button>
             <button type="button" class="btn btn-default" onclick="location.href='./list.jsp'">목록</button>

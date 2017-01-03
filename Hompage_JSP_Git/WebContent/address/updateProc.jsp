@@ -33,9 +33,9 @@ function blist() {
 </head> 
 <body> 
 <jsp:include page="/templet/top.jsp"/>
-<div class="w3-container" id="services" style="margin-top:70px">
-<h2 style="margin-bottom: 0px;"><span class="glyphicon glyphicon-list-alt"></span>_주소록</h2>
-<hr style="width:170px; border:2px solid; margin-top: 5px; border-color: #FF4500" class="w3-round">
+<div class="w3-container mainPosition" id="services">
+<h2 class="iconPosition"><span class="glyphicon glyphicon-list-alt"></span>_주소록</h2>
+<hr class="w3-round border-position">
 </div>
 
 
@@ -56,7 +56,7 @@ function blist() {
 	        <div class="modal-body">
 	          <p>수정을 성공했습니다.</p>
 	        </div>
-	        <div class="modal-footer" style="padding-right: 40px;">
+	        <div class="modal-footer modal-button">
 	          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="blist()">목록</button>
 	          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="location.href='./createForm.jsp'">등록</button>
 	          <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
@@ -66,8 +66,8 @@ function blist() {
 	  </div>
 	</div>
 <%}else{%>
-		<div class="container">
-    	<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">결과 확인하기</button>
+<div class="container">
+   <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">결과 확인하기</button>
 
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">

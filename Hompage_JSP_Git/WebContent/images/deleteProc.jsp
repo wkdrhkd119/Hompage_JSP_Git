@@ -58,30 +58,88 @@ location.href=url;
 <hr class="w3-round border-position">
 </div>
  
-<DIV class="title">처리결과</DIV>
-<div class="content"></div>
- <%
- 	if(pflag==false){
- 	out.print("패스워드가 일치하지 않습니다.");
- 	}else if(flag){
- 	out.print("글을 삭제 했습니다.");
+<div class="w3-row">
+<div class="w3-col w3-center modalPosition">
+    <%if(pflag==false){%>
  	
- 	}else{
- 	out.print("글을 삭제했습니다.");
- 	}
- %>
+ 	<div class="container">
+	    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">결과 확인하기</button>
 
-  <% if(pflag==false){ %>
-  <DIV class='bottom'>
-    <input type='button' value='돌아가기' onclick="history.back()">
-    <input type='button' value='목록' onclick="blist()">
-  </DIV>
-<%}else {%>
-<DIV class='bottom'>
-    <input type='button' value='다시등록' onclick="location.href='createForm.jsp'">
-    <input type='button' value='목록' onclick="blist()">
-  </DIV>
-<%} %>
+	  <!-- Modal -->
+	  <div class="modal fade" id="myModal" role="dialog">
+	    <div class="modal-dialog modal-sm">
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal">&times;</button>
+	          <h4 class="modal-title">결과</h4>
+	        </div>
+	        <div class="modal-body">
+	          <p>패스워드가 틀립니다. 다시한번 확인하세요.</p>
+	        </div>
+	        <div class="modal-footer modal-button">
+	          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="location.href='./list.jsp'">목록</button>
+	          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="history.back()">뒤로</button>
+	          <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+ 	<%}else if(flag){%>
+ 	
+ 	<div class="container">
+	    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">결과 확인하기</button>
+
+	  <!-- Modal -->
+	  <div class="modal fade" id="myModal" role="dialog">
+	    <div class="modal-dialog modal-sm">
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal">&times;</button>
+	          <h4 class="modal-title">결과</h4>
+	        </div>
+	        <div class="modal-body">
+	          <p>삭제를 성공했습니다.</p>
+	        </div>
+	        <div class="modal-footer modal-button">
+	          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="location.href='./list.jsp'">목록</button>
+	          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="location.href='./createForm.jsp'">등록</button>
+	          <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+ 	<%}else{%>
+ 	
+ 	<div class="container">
+   <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">결과 확인하기</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">결과</h4>
+        </div>
+        <div class="modal-body" style="padding-right: 40px;">
+          <p>삭제를 실패했습니다. 다시 시도해 주세요.</p>
+        </div>
+        <div class="modal-footer" style="padding-right: 40px;">
+          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="location.href='./list.jsp'">목록</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="history.back()">다시시도</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%}%>
+</div>
+</div>
+
+  
  
  
 <!-- *********************************************** -->

@@ -87,8 +87,8 @@ $(document).ready(function() {
 </div>
 </div>
 <%}else{ %>
-<div class="row">
-<div class="col-sm-2"></div>
+
+
 <FORM name="frm" 
 	  method="POST" 
 	  action="./deleteProc.jsp" 
@@ -101,12 +101,17 @@ $(document).ready(function() {
 <input name="col" type="hidden" value="<%=request.getParameter("col")%>">
 <input name="word" type="hidden" value="<%=request.getParameter("word")%>">
 
-
+	
+	
+	<div class="row">
+	<div class="col-sm-3"></div>
 	<div class="container dangerWith">
 	  <div class="alert alert-danger alingCenter">
 	  	<strong>경고!</strong>  삭제하시면 복구가 불가능 합니다. 그래도 삭제 하시겠습니까?
 	  </div>
 	</div>
+	</div>
+	
 	<br>
 
     <div class="form-group" >
@@ -129,15 +134,8 @@ $(document).ready(function() {
         </div>
     </div>
     
-<!--     <div class="form-group">
-        <div class="col-md-9 col-md-offset-3">
-            <button type="submit" class="btn btn-default">삭제</button>
-            <button type="button" class="btn btn-default" onclick="history.back()">취소</button>
-        </div>
-    </div> -->
-    
 </FORM>
-</div>
+
 
 <%}%>
 

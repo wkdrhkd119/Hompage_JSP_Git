@@ -187,8 +187,8 @@ public class ImagesDAO {
 			pstmt.setString(3, dto.getContent());
 			pstmt.setString(4, dto.getPasswd());
 			pstmt.setInt(5, dto.getGrpno());
-			pstmt.setInt(6, dto.getIndent());
-			pstmt.setInt(7, dto.getAnsnum());
+			pstmt.setInt(6, dto.getIndent()+1);
+			pstmt.setInt(7, dto.getAnsnum()+1);
 			pstmt.setInt(8, dto.getNo());
 			pstmt.setString(9, dto.getFname());
 			
