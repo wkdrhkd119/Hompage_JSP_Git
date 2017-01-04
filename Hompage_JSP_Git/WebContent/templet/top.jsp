@@ -1,8 +1,10 @@
+<%@page import="utility.Utility"%>
 <%@ page contentType="text/html; charset=UTF-8" %> 
 <% 
 	String root = request.getContextPath(); 
 	String id = (String)session.getAttribute("id");
 	String grade = (String)session.getAttribute("grade");
+	String word = Utility.checkNull(request.getParameter("word"));
 	
 	String str = null;
 	if(id!=null && grade.equals("A")){
@@ -30,7 +32,27 @@ body {font-size:15px;}
 .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
 .w3-half img:hover{opacity:1}
 
+/* input[type=text] {
+    width: 110px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    font-size: 13px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 6px; 
+    background-repeat: no-repeat;
+    padding: 8px 16px 8px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 30%;
+} */
+
 </style>
+
 <body>
 
 <!-- Sidenav/menu -->
@@ -38,6 +60,9 @@ body {font-size:15px;}
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-padding-xlarge w3-hide-large w3-display-topleft w3-hover-white" style="width:100%">Close Menu</a>
   <div class="w3-container">
     <h3 class="w3-padding-32"><b>HomePage</b></h3>
+   <%--  <input type="text" name="word" value="<%=word%>">
+	<input type="submit" class="btn btn-default" value="검색" onclick="../suggest/suggest_team.jsp"> --%>
+	
     <%=str%>
   </div>
   
@@ -49,6 +74,7 @@ body {font-size:15px;}
   <a href="<%=root%>/bbs/list.jsp" onclick="w3_close()" class="w3-padding w3-hover-white">게시판</a> 
   <a href="<%=root%>/memo/list.jsp" onclick="w3_close()" class="w3-padding w3-hover-white">메모</a> 
   <a href="<%=root%>/address/list.jsp" onclick="w3_close()" class="w3-padding w3-hover-white">주소록</a> 
+  <a href="<%=root%>/team/list.jsp" onclick="w3_close()" class="w3-padding w3-hover-white">팀</a> 
   <a href="<%=root%>/images/list.jsp" onclick="w3_close()" class="w3-padding w3-hover-white">썸네일</a> 
   <%if(id==null){%>
   <a href="<%=root%>/member/agreement.jsp" onclick="w3_close()" class="w3-padding w3-hover-white">회원가입</a> 
@@ -61,7 +87,6 @@ body {font-size:15px;}
   <%}%>
   
 </nav>
-
 <!-- Top menu on small screens -->
 <header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
   <a href="javascript:void(0)" class="w3-btn w3-red w3-border w3-border-white w3-margin-right" onclick="w3_open()">☰</a>
@@ -73,6 +98,7 @@ body {font-size:15px;}
 
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:340px;margin-right:40px;">
+	<jsp:include page="../suggest/suggest_team.jsp" flush="false"/>
 
   <!-- Header
   <div class="w3-container" style="margin-top:50px" id="showcase">

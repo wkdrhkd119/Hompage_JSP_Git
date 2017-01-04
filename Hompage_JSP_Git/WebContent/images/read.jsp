@@ -65,9 +65,18 @@ function idelete(){
 	url+= "&oldfile=<%=dto.getFname()%>";
 	location.href=url;
 }
-
-
 </script>
+<style type="text/css">
+.imgpading{
+	padding-left: 76px;
+	padding-right: 9px;
+}
+
+.iconp{
+	margin-left: 60px;
+}
+</style>
+
 </head> 
 
 <body>
@@ -77,13 +86,16 @@ function idelete(){
 <h2 class="iconPosition"><span class="glyphicon glyphicon-picture"></span>_썸네일</h2>
 <hr class="w3-round border-position">
 </div> 
- 
-    <table>
+	<div class="container">
+	<div class="row">
+  	<div class="col-sm-4"></div>
+     <table>
     <tr>			
 		<td colspan="2" id="ftd">
 		<img class="simage" id="img" src='<%=root %>/images/storage/<%=dto.getFname() %>'>
-	     </td>
+	    </td>
     </tr>
+	
     <TR>
       <TH>제목</TH>
       <TD><%=dto.getTitle() %></TD>
@@ -118,7 +130,15 @@ function idelete(){
       
       </TD>
     </TR>
+  
   </TABLE>
+  </div>
+  </div>
+  
+  
+<div class="container">
+ <div class="row">
+  <div class="col-md-2"> </div>
   <TABLE>
   	<TR>
   	<%
@@ -128,23 +148,25 @@ function idelete(){
     for(int i=0;i<5;i++){
     	if(files[i]==null){  
  	 %>
- 	<td><img class="slistimage" src="<%=root %>/images/storage/member.jpg"><td>
+  
+ 	<td><img class="slistimage w3-hover-opacity" src="<%=root %>/images/storage/member.jpg"><td>
   	<%
     	}else{
     		if(noArr[i]==no){
   	%> 	
-  <td><a href="javascript:readGo('<%=noArr[i]%>')">
-  <img class="slistimage" src="<%=root %>/images/storage/<%=files[i] %>">
+  <td class="w3-row-padding"><a href="javascript:readGo('<%=noArr[i]%>')">
+  <img class="slistimage w3-hover-opacity" src="<%=root %>/images/storage/<%=files[i] %>">
   </a>
   </td>
   	<%		
     		}else{
     			   		
   	%>
-  <td ><a href="javascript:readGo('<%=noArr[i]%>')">
-  <img class="slistimage" src="<%=root %>/images/storage/<%=files[i] %>">
+  <td class="w3-row-padding"><a href="javascript:readGo('<%=noArr[i]%>')">
+  <img class="slistimage w3-hover-opacity" src="<%=root %>/images/storage/<%=files[i] %>">
   </a>
   </td>
+  
   <%
     		}
     	 }   		
@@ -152,13 +174,26 @@ function idelete(){
   %> 
     </TR>
     </TABLE>
+    </div>
+    </div>
+<br>  
+
+
+<div class="container">
+ <div class="row">
+ 
+  <div class="col-md-4 iconp"> </div>
+    <input type='button' value='목록' class="btn btn-default" onclick="location.href='./list.jsp'">
+    <input type='button' value='수정' class="btn btn-default" onclick ="update()">
+    <input type='button' value='답변' class="btn btn-default" onclick="reply()">
+    <input type='button' value='삭제' class="btn btn-default" onclick="idelete()">
+ </div>
+ </div>
+
+
+
   
-  <DIV class='bottom'>   
-    <input type='button' value='목록' onclick="location.href='./list.jsp'">
-    <input type='button' value='수정' onclick ="update()">
-    <input type='button' value='답변' onclick="reply()">
-    <input type='button' value='삭제' onclick="idelete()">
-  </DIV>
+ 
 
 <jsp:include page="/templet/bottom.jsp" />
 </body>

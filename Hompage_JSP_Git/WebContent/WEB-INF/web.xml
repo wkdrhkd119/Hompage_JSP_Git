@@ -28,4 +28,15 @@
     <filter-name>AdminLoginCheckFilter</filter-name>
     <url-pattern>/admin/*</url-pattern>
   </filter-mapping>
+  
+   <servlet><!-- 서블릿 이름과 서블릿 클래스 선언 -->
+        <description></description>
+        <display-name>Team</display-name>
+        <servlet-name>Team</servlet-name>
+        <servlet-class>suggest.Team</servlet-class>
+    </servlet>
+    <servlet-mapping><!-- URL상으로 접근해야 하는 경로명 -->
+        <servlet-name>Team</servlet-name>
+        <url-pattern>/team</url-pattern>
+    </servlet-mapping> 
 </web-app>
